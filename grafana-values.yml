@@ -1,0 +1,32 @@
+persistence:
+    type: pvc
+    enabled: true
+
+service:
+    type: NodePort
+    port: 80
+    targetPort: 3000
+    nodePort: 32000
+
+datasources:
+    datasources.yaml:
+        apiVersion: 1
+        datasources:
+            - name: Loki
+              type: loki
+              access: proxy
+              orgId: 1
+              url: http://loki-gateway.monitoring.svc.cluster.local:80
+              basicAuth: false
+              isDefault: true
+              version: 1
+              editable: true
+            - name: Prometheus
+              type: prometheus
+              access: proxy
+              orgId: 1
+              url: http://prometheus-server.monitoring.svc.cluster.local:80
+              basicAuth: false
+              isDefault: false
+              version: 1
+              editable: true
