@@ -56,6 +56,7 @@ alloy-logs:
     alloy:
         mounts:
             varlog: false
+            dockercontainers: false
         clustering:
             enabled: true
 
