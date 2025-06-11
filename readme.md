@@ -219,3 +219,5 @@ alloy-receiver:
 ```sh
 helm install --values ./k8s-monitoring-values.yml k8s grafana/k8s-monitoring -n monitoring
 ```
+
+Add Dashboards - 15282 and 13639
